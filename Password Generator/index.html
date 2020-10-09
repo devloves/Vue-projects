@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Password Generator</title>
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body bgcolor="white">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <div id="app">
+    <h1>Password Generator</h1>
+    <div class="card">
+      <div class="generator">
+        <div class="g-result-container">
+          <div class="g-result">
+            <input id="g-password" type="text" v-bind:value="password" disabled>
+          </div>
+          <input type="submit" value="Generate New Password" class="g-btn" v-on:click="onGenerate">
+        </div>
+      </div>
+      <div class="options">
+        <h2>Options</h2>
+        <div class="g-row g-m-15">
+          <label for="g-length" class="g-l-length">Pass Length</label>
+        </div>
+        <div class="g-row">
+          <input class="g-range" type="range" min="6" max="30" v-bind:value="gLength" v-model="gLength">
+          <input class="g-number" type="number" v-bind:value="gLength" v-model="gLength">
+        </div>
+        <div class="g-row g-m-15">
+          <label class="g-l-complexity">Pass Complexity</label>
+        </div>
+        <div class="g-row g-m-15" v-for="type in characters">
+          <input type="checkbox" v-bind:checked="type.checked" v-on:click="type.checked = !type.checked">
+          <label for="">{{type.name}}</label>
+          <br/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    new Vue ({
+        el: '#app',
+        data: function() {
+          return {
+            characters: [
+              {
+                  name: "Lowercase",
+                  value: "abcdefghijklmnopqrstuvwxyz",
+                  checked: false,
+              },
+              {
+                  name: "Uppercase",
+                  value: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                  checked: true,
+              },
+              {
+                  name: "Numbers",
+                  value: "0123456789",
+                  checked: true,
+              },
+              {
+                  name: "Special Characters",
+                  value: "_-+=)(*&^%$#@!`~",
+                  checked: false,
+              },
+            ],
+            password: "",
+            gLength: 9,
+          }
+        },
+        methods: {
+          onGenerate: function() {
+              let result = "";
+              let charactersVal = "";
+              for (var j = 0; j < this.characters.length; j++) {
+                if (this.characters[j].checked) {
+                  charactersVal += this.characters[j].value;
+                }
+              }
+              for ( var i = 0; i < this.gLength; i++ ) {
+                result += charactersVal.charAt(Math.floor(Math.random() * charactersVal.length));
+              }
+              this.password = result;
+            },
+            onCopyPass: function() {
+                let textToCopy = this.password;
+                try {
+                    // 1) Copy text
+                    navigator.clipboard.writeText(textToCopy);
+    
+                    // 2) Catch errors
+                  } catch (err) {
+                    console.error('Failed to copy: ', err);
+                  }
+            }
+        },
+    });
+  </script>
+</body>
+</html>

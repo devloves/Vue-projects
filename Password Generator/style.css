@@ -1,0 +1,135 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.card {
+  width: 600px;
+  background: #fff;
+  padding: 60px 30px;
+  border-radius: 20px;
+  display: grid;
+  grid-template-areas:
+    'generator options';
+  grid-gap: 10px;
+  grid-template-columns: 50% 50%;
+}
+.generator {
+  padding: 10px;
+  text-align: center;
+  grid-area: generator;
+  border-right: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.options {
+  grid-area: options;
+  padding: 10px;
+}
+.g-btn {
+  border: none;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #fff;
+  background: purple;
+  padding: 10px 30px;
+  border-radius: 5px;
+  text-decoration: bold;
+  opacity: .9;
+  transition: .5s all ease;
+  font-size: 16px;
+}
+.g-btn:hover {
+  background: #fff;
+  color: purple;
+  opacity: 1;
+}
+.g-btn:active {
+  box-shadow: none;
+}
+*:focus {
+    outline: none;
+}
+.g-result {
+  border: 2px solid purple;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 20px;
+  position: relative;
+}
+.g-result input {
+  background-color: transparent;
+  padding: 10px 20px;
+  color: purple;
+  border: none;
+}
+.g-row {
+  width: 100%;
+}
+h2 {
+  color: purple;
+  text-align: center;
+}
+label {
+  color: purple;
+}
+.g-range {
+  float: left;
+  box-sizing: border-box;
+}
+.g-number {
+  width: 30px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: none;
+}
+.g-result i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 35px;
+  width: 40px;
+  line-height: 35px;
+  background-color: #fff;
+  border-radius: 0 20px 20px 0;
+}
+.g-result:hover {
+  cursor: pointer;
+}
+.g-m-15 {
+  margin: 15px 0;
+}
+.g-l-length,
+.g-l-complexity {
+  font-weight: 900; 
+}
+
+/* RANGE SLIDER DESIGN */
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 7.3px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 5px;
+  border-radius: 50px;
+  cursor: pointer;
+  background: lightgrey;
+}
+input[type=range]::-webkit-slider-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 0px 15px purple;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+}
