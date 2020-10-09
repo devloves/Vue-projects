@@ -5,12 +5,16 @@
 
 <hr>
 
-> Markdown Editor 
+> **Markdown Editor**
 
 A dead Simple Markdown Editor
 
-> Password Generator 
+> **Password Generator** 
 
 A password generator fully custom with options made in Vue
+
+> **Avatar Initials Generator** 
+
+A very simple avatar generator from initials
 
 ### More Coming Soon...
