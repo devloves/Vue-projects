@@ -2,10 +2,9 @@ html,
 body,
 #editor {
   margin: 0;
-  background: #2C2F33;
   height: 100%;
   font-family: "Helvetica Neue", Arial, sans-serif;
-  color: #fff;
+  color: #333;
 }
 
 textarea,
@@ -23,8 +22,7 @@ textarea {
   border-right: 1px solid #ccc;
   resize: none;
   outline: none;
-  color: #fff;
-  background-color: #23272A;
+  background-color: #f6f6f6;
   font-size: 14px;
   font-family: "Monaco", courier, monospace;
   padding: 20px;
